@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { IncrementalList } from '@/components/shared/IncrementalList';
 import { Spinner } from '@/components/ui/Spinner';
+import { useBudget } from '@/context/BudgetContext';
 import { useProducts } from '../context/ProductsContext';
 import { ProductList } from './ProductList';
 import './ProductCatalog.css';
 
 export const ProductCatalog = () => {
   const { state, loadProducts } = useProducts();
+  const { budgetMode } = useBudget();
 
   useEffect(() => {
     if (state.step === 'idle') loadProducts();
@@ -26,10 +28,15 @@ export const ProductCatalog = () => {
           </div>
         );
       case 'success':
+        const data = state.data;
+        const filteredData = budgetMode
+          ? data.filter((product) => product.price <= 30)
+          : data;
+
         return (
           <IncrementalList
             batchSize={10}
-            items={state.data}
+            items={filteredData}
             renderList={(visibleItems) => (
               <ProductList products={visibleItems} />
             )}
