@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { IncrementalList } from '@/components/shared/IncrementalList';
 import { Spinner } from '@/components/ui/Spinner';
-import { useProducts } from '../context/useProducts';
+import { useProducts } from '../context/ProductsContext';
 import { ProductList } from './ProductList';
 import './ProductCatalog.css';
 
