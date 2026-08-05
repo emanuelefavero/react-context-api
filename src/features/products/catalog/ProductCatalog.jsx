@@ -1,14 +1,13 @@
 import { useEffect } from 'react';
 import { IncrementalList } from '@/components/shared/IncrementalList';
 import { Spinner } from '@/components/ui/Spinner';
-import { useBudget } from '@/context/BudgetContext';
-import { useProducts } from '../context/ProductsContext';
+import { useProducts, useProductsFilters } from '../context';
 import { ProductList } from './ProductList';
 import './ProductCatalog.css';
 
 export const ProductCatalog = () => {
   const { state, loadProducts } = useProducts();
-  const { budgetMode } = useBudget();
+  const { filters } = useProductsFilters();
 
   useEffect(() => {
     if (state.step === 'idle') loadProducts();
@@ -20,6 +19,7 @@ export const ProductCatalog = () => {
     switch (state.step) {
       case 'loading':
         return <Spinner />;
+
       case 'error':
         return (
           <div role='alert'>
@@ -27,21 +27,27 @@ export const ProductCatalog = () => {
             <button onClick={handleReload}>Retry</button>
           </div>
         );
+
       case 'success':
-        const data = state.data;
-        const filteredData = budgetMode
-          ? data.filter((product) => product.price <= 30)
+        const { data } = state;
+        const { maxPrice } = filters;
+
+        const filteredProducts = maxPrice
+          ? data.filter((product) => product.price <= maxPrice)
           : data;
+
+        if (filteredProducts.length === 0) return <p>No products found.</p>;
 
         return (
           <IncrementalList
             batchSize={10}
-            items={filteredData}
+            items={filteredProducts}
             renderList={(visibleItems) => (
               <ProductList products={visibleItems} />
             )}
           />
         );
+
       case 'idle':
       default:
         return null;
