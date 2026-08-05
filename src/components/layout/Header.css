@@ -1,25 +1,33 @@
 .header {
   background-color: var(--background);
   border-bottom: 1px solid var(--border);
-  padding-block: 1.25rem;
 
   > .container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
 
-    @media (width >= 400px) {
+    @media (width >= 580px) {
       flex-direction: row;
     }
+  }
+
+  .logo,
+  .nav-link {
+    padding-block: 1.25rem;
   }
 
   .actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    min-block-size: 3.125rem;
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+
+    @media (width >= 580px) {
+      width: auto;
+    }
   }
 
   .route-list {
@@ -28,6 +36,9 @@
   }
 
   .nav-link {
+    display: block;
+    white-space: nowrap;
+
     &:not(.active):hover {
       text-decoration: underline;
     }
