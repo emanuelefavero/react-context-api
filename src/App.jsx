@@ -1,9 +1,12 @@
 import { RouterProvider } from 'react-router';
-import { ProductsProvider } from '@/features/products/context/ProductsProvider';
 import { router } from './router/router';
+import { ProductsProvider } from './features/products/context/ProductsProvider';
+import { BudgetProvider } from './context/BudgetContext';
 
 export const App = () => (
-  <ProductsProvider>
-    <RouterProvider router={router} />
-  </ProductsProvider>
+  <BudgetProvider>
+    <ProductsProvider>
+      <RouterProvider router={router} />
+    </ProductsProvider>
+  </BudgetProvider>
 );
