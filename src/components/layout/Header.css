@@ -19,6 +19,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
+    min-block-size: 3.125rem;
   }
 
   .route-list {

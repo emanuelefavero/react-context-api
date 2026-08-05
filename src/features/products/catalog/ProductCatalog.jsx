@@ -28,11 +28,11 @@ export const ProductCatalog = () => {
           </div>
         );
 
-      case 'success':
+      case 'success': {
         const { data } = state;
         const { maxPrice } = filters;
 
-        const filteredProducts = maxPrice
+        const filteredProducts = maxPrice !== null
           ? data.filter((product) => product.price <= maxPrice)
           : data;
 
@@ -47,6 +47,7 @@ export const ProductCatalog = () => {
             )}
           />
         );
+      }
 
       case 'idle':
       default:
