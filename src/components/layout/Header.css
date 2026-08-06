@@ -18,6 +18,12 @@
     padding-block: 1.25rem;
   }
 
+  .logo-and-stuff {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .actions {
     display: flex;
     align-items: center;
@@ -51,5 +57,13 @@
   .icon {
     width: 1.25rem;
     height: 1.25rem;
+  }
+
+  .back-button {
+    display: none;
+
+    @media (width >= 700px) {
+      display: inline-flex;
+    }
   }
 }

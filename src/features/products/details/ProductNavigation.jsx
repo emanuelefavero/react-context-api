@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import { paths } from '@/router/paths';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { paths } from '@/router/paths';
 
 export const ProductNavigation = ({ prevProduct, nextProduct }) => {
   const navigate = useNavigate();
