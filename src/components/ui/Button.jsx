@@ -13,10 +13,15 @@ const buttonVariant = Object.freeze({
 export const Button = ({
   type = 'button',
   variant = buttonVariant.primary,
+  fullWidth = false,
   className = '',
   ...props
 }) => (
-  <button type={type} className={cx('button', variant, className)} {...props} />
+  <button
+    type={type}
+    className={cx('button', variant, fullWidth && 'full-width', className)}
+    {...props}
+  />
 );
 
 Button.variant = buttonVariant;

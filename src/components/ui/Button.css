@@ -1,5 +1,6 @@
 .button {
   display: inline-flex;
+  inline-size: fit-content;
   align-items: center;
   justify-content: center;
   border-radius: 0.5rem;
@@ -29,6 +30,10 @@
   &:disabled {
     opacity: 0.5;
     cursor: default;
+  }
+
+  &.full-width {
+    inline-size: 100%;
   }
 
   &.primary {
