@@ -5,13 +5,16 @@
   --background: #fff;
   --background-muted: #f7f9fd;
   --background-secondary: #eef2f5;
+  --background-outline: #fbfdff;
+  --background-success: #e6f9f0;
   --background-warning: #fff4e5;
   --primary: #3948ec;
   --primary-solid: #3948ec;
   --primary-solid-foreground: #fff;
+  --success: #00a349;
   --warning: #ffc109;
   --danger: #c10007;
-  --border: #dbdcde;
+  --border: #cdd0d8;
   --selection: rgb(25 13 253 / 0.3);
   --sans: system-ui, sans-serif;
 
@@ -21,8 +24,11 @@
     --background: #0d1016;
     --background-muted: #13161d;
     --background-secondary: #07080d;
+    --background-outline: #12151d;
+    --background-success: #003d1a;
     --background-warning: #3b2e00;
     --primary: #949dff;
+    --success: #00c851;
     --warning: #bf9002;
     --danger: #f3474d;
     --border: #2f333d;

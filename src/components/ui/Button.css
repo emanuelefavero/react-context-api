@@ -37,6 +37,32 @@
     border: 1px solid transparent;
   }
 
+  &.outline {
+    background-color: var(--background-outline);
+    color: var(--foreground);
+    border: 1px solid var(--border);
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  &.success {
+    background-color: var(--background-success);
+    color: var(--foreground);
+    border: 1px solid var(--success);
+
+    &:hover {
+      background-color: var(--success);
+      color: var(--background);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--success);
+      outline-offset: 2px;
+    }
+  }
+
   &.danger {
     background-color: var(--background);
     color: var(--danger);
